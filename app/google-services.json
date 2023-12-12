@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "824323033474",
+    "project_id": "project-mco",
+    "storage_bucket": "project-mco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824323033474:android:81210e4565404f294fe79b",
+        "android_client_info": {
+          "package_name": "com.sain.projectlunixapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEd9NZRYd5MNN0BjaKxtXTe0FniUIXGcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
