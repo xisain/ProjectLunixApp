@@ -3,6 +3,7 @@ package com.sain.projectlunixapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +33,7 @@ public class HomePage extends AppCompatActivity {
     RecyclerView recyclerView;
     List<Agent> dataList;
     MyAdapter adapter;
+    SearchView search;
 
     DatabaseReference databaseReference;
 
@@ -41,19 +43,21 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         fab = findViewById(R.id.fab);
         recyclerView = findViewById(R.id.recyclerView);
+        search = findViewById(R.id.search);
+        search.clearFocus();
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(HomePage.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(HomePage.this);
         builder.setCancelable(false);
         builder.setView(R.layout.progress_layout);
         AlertDialog dialog = builder.create();
         dialog.show();
-        dataList = new ArrayList<>();
 
+        dataList = new ArrayList<>();
         adapter = new MyAdapter(HomePage.this, dataList);
         recyclerView.setAdapter(adapter);
-
-
         databaseReference = ref;
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -68,10 +72,21 @@ public class HomePage extends AppCompatActivity {
                 }
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                dialog.dismiss();
+            }
+        });
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
             }
         });
         fab.setOnClickListener(new View.OnClickListener() {
@@ -81,5 +96,15 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+    }
+    public void searchList(String text) {
+        ArrayList<Agent> searchList = new ArrayList<>();
+        for(Agent dataClass: dataList){
+            if(dataClass.getName().toLowerCase().contains(text.toLowerCase())){
+                searchList.add(dataClass);
+            }
+        }
+        adapter.searchDataList(searchList);
     }
 }
