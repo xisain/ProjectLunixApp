@@ -1,0 +1,6 @@
+<resources>
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- Mengatur tingkat kebulatan (0-100%) -->
+    </style>
+</resources>

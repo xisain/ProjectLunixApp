@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <group
+            android:checkableBehavior="single">
+            <item
+                android:id="@+id/homeP"
+                android:title="Home"
+                android:icon="@drawable/baseline_home_24"/>
+            <item
+                android:id="@+id/agentadd"
+                android:title="Add Agent"
+                android:icon="@drawable/baseline_person_add_24"/>
+            <item
+                android:id="@+id/logout"
+                android:title="Logout"
+                android:icon="@drawable/baseline_logout_24"/>
+            <item
+                android:id="@+id/detail"
+                android:title="Detail"
+                android:icon="@drawable/baseline_details_24"/>
+        </group>
+</menu>
