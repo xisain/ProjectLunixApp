@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.sain.projectlunixapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.sain.projectlunixapp"
