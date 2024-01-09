@@ -128,7 +128,7 @@ public class AddAgent extends AppCompatActivity {
                     Log.e("Firebase", "Image upload failed", e);
                 });
     }
-
+    // Testing
     private void saveAgentToDatabase(String key, String agent, String dsc, String sk1, String sk2, String sk3, String ulti, String imageUrl) {
         DatabaseReference agentRef = ref.child(agent);
         agentRef.addListenerForSingleValueEvent(new ValueEventListener() {
