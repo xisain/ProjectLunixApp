@@ -43,7 +43,7 @@ public class DetailActivity extends AppCompatActivity {
         deleteButton = findViewById(R.id.deleteButton);
         editButton = findViewById(R.id.editButton);
 
-
+        // updating
         Bundle bundle = getIntent().getExtras();
         String AgentName = bundle.getString("Title");
 
